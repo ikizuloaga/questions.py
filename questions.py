@@ -3,6 +3,7 @@ words = ["python","programa","variable","funcion","bucle","cadena","entero","lis
 word = random.choice(words)
 guessed = []
 attempts = 6
+puntaje = 0
 print("¡Bienvenido al Ahorcado!")
 print()
 while attempts > 0: # Mostrar progreso: letras adivinadas y guiones para las que faltan
@@ -14,7 +15,8 @@ while attempts > 0: # Mostrar progreso: letras adivinadas y guiones para las que
             progress += "_ "
     print(progress) # Verificar si el jugador ya adivinó la palabra completa
     if "_" not in progress:
-        print("¡Ganaste!")
+        puntaje += 10
+        print(f"¡Ganaste! Tu puntaje final es: {puntaje}")
         break
     print(f"Intentos restantes: {attempts}")
     print(f"Letras usadas: {', '.join(guessed)}")
@@ -30,7 +32,11 @@ while attempts > 0: # Mostrar progreso: letras adivinadas y guiones para las que
     else:
             guessed.append(letter)
             attempts -= 1
+            puntaje -= 2
             print("Esa letra no está en la palabra.")
             print()
 else:
-    print(f"¡Perdiste! La palabra era: {word}")
+    puntaje = 0
+    print(f"¡Perdiste! La palabra era: {word}, tu puntacion fue {puntaje}")
+    
+    
