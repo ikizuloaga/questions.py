@@ -50,7 +50,6 @@ for word in palabra_ronda:
                 print("Esa letra no está en la palabra.")
                 print()
     else:
-        puntaje = 0
         print(f"¡Perdiste esta ronda! La palabra era: {word}")
 
 print(f'Juego Terminado. Tu Puntaje Final: {puntaje}')
