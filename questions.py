@@ -1,6 +1,18 @@
 import random
-words = ["python","programa","variable","funcion","bucle","cadena","entero","lista",]
-word = random.choice(words)
+categoria = {
+    'programacion' : ["python","programa","variable","funcion","bucle","cadena","entero","lista",],
+    'deportes' : ["rugby",'futbol','hockey','voley','basquet','golf','tenis'],
+    'comida' : ['milanesa','hamburguesa','panchos','pescado','verdura','zanahoria']
+}
+print('Categorias Disponibles: ')
+for cat in categoria.keys():
+    print(cat)
+categoria_elegida = input('Elegi una categoria: ').lower()
+if categoria_elegida in categoria:
+    word = random.choice(categoria[categoria_elegida])
+else:
+    print("Categoría inválida, se elige 'programacion' por defecto.")
+    word = random.choice(categoria['programacion'])
 guessed = []
 attempts = 6
 puntaje = 0
@@ -37,6 +49,6 @@ while attempts > 0: # Mostrar progreso: letras adivinadas y guiones para las que
             print()
 else:
     puntaje = 0
-    print(f"¡Perdiste! La palabra era: {word}, tu puntacion fue {puntaje}")
+    print(f"¡Perdiste! La palabra era: {word}, tu puntacion final fue {puntaje}")
     
     
